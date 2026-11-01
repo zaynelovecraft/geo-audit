@@ -15,12 +15,17 @@ const RESET = "\x1b[0m";
 
 const target = process.argv[2];
 const jsonFlag = process.argv.includes("--json");
+const minScore = Number(process.argv.find((a) => a.startsWith("--min="))?.split("=")[1] ?? 0);
 
 if (!target || target === "--help" || target === "-h") {
   console.log(`${BOLD}geo-audit${RESET} — Technical SEO & AI Search (GEO) Readiness CLI
 
 ${BOLD}Usage:${RESET}
-  npx geo-audit <https://example.com> [--json]
+  npx github:zaynelovecraft/geo-audit <https://example.com> [--json] [--min=80]
+
+${BOLD}Options:${RESET}
+  --json      Print results as JSON
+  --min=<n>   Exit with code 1 if the score is below <n> (for CI)
 `);
   process.exit(target ? 0 : 1);
 }
@@ -61,7 +66,9 @@ function record(name, passed, points, detail) {
 
 // 1. Title & Meta Description
 const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-const title = titleMatch ? titleMatch[1].trim() : "";
+const title = titleMatch
+  ? titleMatch[1].trim().replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&quot;/g, '"')
+  : "";
 record("Title tag (15-65 chars)", title.length >= 15 && title.length <= 65, 10, title ? `"${title}" (${title.length}c)` : "Missing");
 
 const descMatch = html.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["']/i)
@@ -104,9 +111,11 @@ record("robots.txt allows AI citation crawlers", robots.ok && !aiBotsBlocked, 15
 // 6. /llms.txt presence
 record("/llms.txt machine-readable index", llms.ok && llms.text.length > 20, 10, llms.ok ? `Present (${llms.text.length} bytes)` : "Not found (/llms.txt)");
 
+const belowMin = score < minScore;
+
 if (jsonFlag) {
   console.log(JSON.stringify({ url: url.href, score, checks }, null, 2));
-  process.exit(0);
+  process.exit(belowMin ? 1 : 0);
 }
 
 console.log(`\n${BOLD}GEO & Technical SEO Audit${RESET} — ${CYAN}${url.href}${RESET}\n`);
@@ -118,3 +127,8 @@ for (const c of checks) {
 
 const color = score >= 80 ? GREEN : score >= 55 ? YELLOW : RED;
 console.log(`\n${BOLD}Overall GEO Score:${RESET} ${color}${BOLD}${score}/100${RESET}\n`);
+
+if (belowMin) {
+  console.error(`${RED}✗ Score ${score} is below the minimum of ${minScore}.${RESET}`);
+  process.exit(1);
+}
