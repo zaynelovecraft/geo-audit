@@ -1,0 +1,15 @@
+{
+  "name": "geo-audit",
+  "version": "0.1.0",
+  "description": "Technical SEO & Generative Engine Optimization (GEO) CLI auditor — scores JSON-LD schema, llms.txt, AI bot rules, and semantic HTML",
+  "type": "module",
+  "bin": {
+    "geo-audit": "./src/cli.mjs"
+  },
+  "scripts": {
+    "start": "node src/cli.mjs"
+  },
+  "keywords": ["seo", "geo", "json-ld", "llms-txt", "ai-search", "cli", "schema-org"],
+  "author": "Zayne Lovecraft",
+  "license": "MIT"
+}
