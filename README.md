@@ -1,6 +1,12 @@
 # geo-audit 🔍
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Case Study](https://img.shields.io/badge/Case_Study-zaynelovecraft.com-6366f1)](https://www.zaynelovecraft.com/work/geo-audit)
+[![Article](https://img.shields.io/badge/Deep_Dive-Read_Post-10b981)](https://www.zaynelovecraft.com/articles/generative-engine-optimization-geo-audit-nextjs-cwv)
+
 Zero-dependency CLI auditor for **Technical SEO** and **Generative Engine Optimization (GEO)** — scores any URL out of 100 on JSON-LD entity graphs, AI crawler directives (`GPTBot`, `ClaudeBot`, `PerplexityBot`), `/llms.txt`, canonical tags, and semantic HTML5 landmarks.
+
+> 📖 **Read the full engineering breakdown:** [Generative Engine Optimization (GEO) & CWV Gates in Next.js](https://www.zaynelovecraft.com/articles/generative-engine-optimization-geo-audit-nextjs-cwv)
 
 ```text
 $ npx github:zaynelovecraft/geo-audit https://zaynelovecraft.com
