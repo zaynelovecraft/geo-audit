@@ -16,11 +16,12 @@ const CYAN = "\x1b[36m";
 const RESET = "\x1b[0m";
 
 const target = process.argv.slice(2).find((a) => !a.startsWith("-"));
+const helpFlag = process.argv.includes("--help") || process.argv.includes("-h");
 const jsonFlag = process.argv.includes("--json");
 const minRaw = process.argv.find((a) => a.startsWith("--min="))?.split("=")[1];
 const minScore = minRaw === undefined ? 0 : Number(minRaw);
 
-if (process.argv.includes("--help") || process.argv.includes("-h") || !target) {
+if (helpFlag || !target) {
   console.log(`${BOLD}geo-audit${RESET} — Technical SEO & AI Search (GEO) Readiness CLI
 
 ${BOLD}Usage:${RESET}
@@ -30,7 +31,7 @@ ${BOLD}Options:${RESET}
   --json      Print results as JSON
   --min=<n>   Exit with code 1 if the score is below <n> (for CI)
 `);
-  process.exit(target ? 0 : 1);
+  process.exit(helpFlag ? 0 : 1);
 }
 
 if (!Number.isFinite(minScore) || minScore < 0 || minScore > 100) {
