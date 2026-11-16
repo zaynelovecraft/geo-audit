@@ -4,7 +4,7 @@
 [![Case Study](https://img.shields.io/badge/Case_Study-zaynelovecraft.com-6366f1)](https://www.zaynelovecraft.com/work/geo-audit)
 [![Article](https://img.shields.io/badge/Deep_Dive-Read_Post-10b981)](https://www.zaynelovecraft.com/articles/generative-engine-optimization-geo-audit-nextjs-cwv)
 
-A zero-dependency CLI that scores any live URL out of 100 for **technical SEO** and **Generative Engine Optimization (GEO)**: title and meta, canonical, heading structure, JSON-LD, whether AI crawlers (`GPTBot`, `ClaudeBot`, `PerplexityBot`) are allowed, and `/llms.txt`.
+A zero-dependency CLI that scores any live URL out of 100 for **technical SEO** and **Generative Engine Optimization (GEO)**: title and meta, canonical, heading structure, JSON-LD, whether AI crawlers (`GPTBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`, `Applebot-Extended`) are allowed, and `/llms.txt`.
 
 > 📖 **Engineering write-up:** [Generative Engine Optimization (GEO) & CWV Gates in Next.js](https://www.zaynelovecraft.com/articles/generative-engine-optimization-geo-audit-nextjs-cwv)
 

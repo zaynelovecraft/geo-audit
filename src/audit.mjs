@@ -2,7 +2,14 @@
  * Pure HTML, robots.txt, and GEO scoring helpers for geo-audit.
  */
 
-const AI_CRAWLERS = ["gptbot", "claudebot", "perplexitybot", "oai-searchbot"];
+const AI_CRAWLERS = [
+  "gptbot",
+  "claudebot",
+  "perplexitybot",
+  "oai-searchbot",
+  "google-extended",
+  "applebot-extended",
+];
 
 function extractAttribute(tag, attrName) {
   const re = new RegExp(`\\b${attrName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, "i");

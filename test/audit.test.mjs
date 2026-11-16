@@ -54,9 +54,12 @@ describe("robots.txt AI crawler scoping", () => {
       "",
       "User-agent: GPTBot",
       "Allow: /",
+      "",
+      "User-agent: Google-Extended",
+      "Disallow: /",
     ].join("\n");
 
-    assert.deepEqual(findBlockedAiCrawlers(robots), ["claudebot"]);
+    assert.deepEqual(findBlockedAiCrawlers(robots), ["claudebot", "google-extended"]);
   });
 });
 
