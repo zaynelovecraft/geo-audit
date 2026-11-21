@@ -1,5 +1,7 @@
 # geo-audit 🔍
 
+[![CI](https://github.com/zaynelovecraft/geo-audit/actions/workflows/ci.yml/badge.svg)](https://github.com/zaynelovecraft/geo-audit/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/zaynelovecraft/geo-audit)](https://github.com/zaynelovecraft/geo-audit/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Case Study](https://img.shields.io/badge/Case_Study-zaynelovecraft.com-6366f1)](https://www.zaynelovecraft.com/work/geo-audit)
 [![Article](https://img.shields.io/badge/Deep_Dive-Read_Post-10b981)](https://www.zaynelovecraft.com/articles/generative-engine-optimization-geo-audit-nextjs-cwv)
